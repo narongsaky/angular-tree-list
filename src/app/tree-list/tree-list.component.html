@@ -1,0 +1,23 @@
+<ul>
+  <ng-template #recursiveTemplate let-list="list">
+    <ng-container *ngFor="let item of list">
+      <li>
+        <span class="indent" *ngFor="let i of createRange(item.level)"></span>
+        <mat-checkbox [checked]="item.isSelected" (change)="onCheckboxChange($event, item, list)">
+          {{item.text | uppercase}}
+        </mat-checkbox>
+        <div class="expand-icon">
+          <mat-icon *ngIf="!item.isExpand" (click)="onExpand(item ,true)">arrow_rightward</mat-icon>
+          <mat-icon *ngIf="item.isExpand" (click)="onExpand(item ,false)">arrow_downward</mat-icon>
+        </div>
+      </li>
+      <ng-container *ngIf="item.isExpand">
+        <ng-container *ngTemplateOutlet="recursiveTemplate; context: { list: item.children }"></ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="recursiveTemplate; context: { list: treeListData }"></ng-container>
+</ul>
+
+
+
