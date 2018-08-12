@@ -8,11 +8,11 @@
 
         <div class="expand-icon">
           <span [hidden]="item.isExpand" (click)="onExpand(item ,true)">
-            <img src="../../../chevron-right-solid.svg" />
+            <img class="expand"  />
           </span>
 
           <span [hidden]="!item.isExpand" (click)="onExpand(item ,false)">
-            <img src="../../../chevron-down-solid.svg" />
+            <img class="collapse" />
           </span>
         </div>
       </li>

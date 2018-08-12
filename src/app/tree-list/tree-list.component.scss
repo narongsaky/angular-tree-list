@@ -4,6 +4,10 @@
 
     list-style: none;
 
+    li {
+        padding: 5px;
+    }
+
     .indent{
         margin-left: 20px;
         margin-right: 20px;
@@ -14,6 +18,16 @@
         cursor: pointer;
         width: 10px;
         height: 10px;
+
+        .expand {
+            content:url("./chevron-right-solid.svg");
+        }
+
+        .collapse{
+            content:url("./chevron-down-solid.svg");
+            display: block;
+        }
+
     }
 
 }
