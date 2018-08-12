@@ -1,12 +1,11 @@
 
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { MatCheckboxChange } from '@angular/material';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-tree-list',
+  selector: 'tree-list',
   templateUrl: './tree-list.component.html',
-  styleUrls: ['./tree-list.component.css'],
+  styleUrls: ['./tree-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeListComponent implements OnInit {
@@ -50,14 +49,14 @@ export class TreeListComponent implements OnInit {
   }
 
 
-  public onCheckboxChange(event: MatCheckboxChange, tree: TreeData, list: TreeData[]): void {
-    if (event.checked && !tree.isExpand) {
+  public onCheckboxChange(checked: boolean, tree: TreeData, list: TreeData[]): void {
+    if (checked && !tree.isExpand) {
       this.expand(tree, !tree.isExpand).subscribe(() => {
       })
     } else {
-      this.setSelectedByList(tree.children, event.checked);
+      this.setSelectedByList(tree.children, checked);
     }
-    tree.isSelected = event.checked;
+    tree.isSelected = checked;
     this.setSelectedParent(tree, list);
   }
 
@@ -121,7 +120,7 @@ export class Tree {
   isSelected: boolean;
 }
 
-class TreeData extends Tree {
+export class TreeData extends Tree {
   level: number;
   parent: TreeData;
   children: TreeData[];

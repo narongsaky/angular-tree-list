@@ -1,0 +1,19 @@
+
+
+.tree-list {
+
+    list-style: none;
+
+    .indent{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .expand-icon{
+        float: right;
+        cursor: pointer;
+        width: 10px;
+        height: 10px;
+    }
+
+}
