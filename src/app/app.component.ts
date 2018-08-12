@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
       const observers = new Observable<Tree[]>((observer) => {
 
-        const list = Array.apply(null, {length: 500}).map((value, index) => {
+        const list = Array.apply(null, {length: 5}).map((value, index) => {
           return {
             id: '11',
             text: 'string_' + index,
